@@ -31,10 +31,13 @@ Explicar la realización del siguiente _Capture the flag_ perteneciente a la pla
 ### Enumeración y fingerprinting
 
 La máquina a vulnerar pertenece a la plataforma *TryHackMe*, la propia web te proporciona la IP de la máquina a vulnerar. La conexión a esta se hace mediante una VPN que te proporciona THM y asigna una nueva IP para que tu máquina interactúe con la máquina víctima.
+El primero paso es lanzar **Nmap** sin *ping* (-Pn) y con los *scripts* por *default* de la herramienta (-sC) para que encuentre vulnerabilidades. Además se quieren conocer las versiones que corren en cada puerto (-sV) y el sistema operativo (-O). No se indica, específicamente, que compruebe todos los puertos pues en este tipo de máquina no será necesario.
+
+![Captura de pantalla 2025-04-04 131854](https://github.com/user-attachments/assets/8527c885-9cdd-499a-ba91-bebcf4b73f80)
 
 El comando devuelve 2 puertos TCPs abiertos:  
-- En el puerto 22 corre la versión *Openssh 7.6p1*, en un sistema *Ubuntu*, del servicio *SSH*.  
-- En el puerto 80 corre el servidor *Nginx 1.14.0*, en un sistema *Ubuntu*, en el servicio *HTTP*.
+- En el puerto 22 corre la versión *Openssh 8.2p1*, en un sistema *Ubuntu*, servicio *SSH*.  
+- En el puerto 80 corre el servidor *Apache 2.4.41*, en un sistema *Ubuntu*, servicio *HTTP*.
 
 ### Vulnerabilidades explotadas
 
