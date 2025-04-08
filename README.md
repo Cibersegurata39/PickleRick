@@ -4,10 +4,7 @@ Máquina resuelta de *TryHackMe* en la que se trabaja la enumeración y *fingerp
   <img src="https://img.shields.io/badge/-Kali-5e8ca8?style=for-the-badge&logo=kalilinux&logoColor=white" />
   <img src="https://img.shields.io/badge/-Nmap-6933FF?style=for-the-badge&logo=nmap&logoColor=white" />
   <img src="https://img.shields.io/badge/-Dirsearch-005571?style=for-the-badge&logo=dirsearch&logoColor=white" />
-  <img src="https://img.shields.io/badge/-Metasploit-2596CD?style=for-the-badge&logo=metasploit&logoColor=white" />
   <img src="https://img.shields.io/badge/-python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/-steghide-FF5200?style=for-the-badge&logo=steghide&logoColor=white" />
-  <img src="https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
 </div>
 
 ## Objetivo
@@ -43,6 +40,14 @@ Primero nos dirigimos, desde el navegador, al puerot 80 de la IP dada, donde se 
 
 
 ![image](https://github.com/user-attachments/assets/52f9925c-635c-4310-bcb4-342b65b72e7e)
+
+Seguidamente, con la ayuda de la herramienta **Dirsearch**, se hace una enumeración de posibles directorios y archivos que se encuentren en la web. Por la parte de directorios, únicamente aparece '/assets' pero su contenido no aporta ninguna pista. Sin embargo,sí aparecen varios archivos interesantes que son alzanzables. *Dirsearch* es lanzado con **Python3** indicando la IP a atacar (-u) y la lista a utilizar para la enumeración (-w); en este caso la 'raft-small-files-lowercase.txt'.
+
+![Captura de pantalla 2025-04-04 134454](https://github.com/user-attachments/assets/664445ee-a900-445c-a035-085657bca083)
+
+Al dirigrnos al archivo '/robots.txt' se encuentra lo que parece ser una contraseña, que junto con el usuario antes encontrado, serán útiles para el otro archivo /login.php', también hallado en la enumeración.
+
+![Captura de pantalla 2025-04-04 134517](https://github.com/user-attachments/assets/efdb16bd-b14c-41bd-bd19-edb158f80200)
 
 ### Vulnerabilidades explotadas
 
