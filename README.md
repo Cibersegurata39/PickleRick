@@ -45,13 +45,22 @@ Seguidamente, con la ayuda de la herramienta **Dirsearch**, se hace una enumerac
 
 ![Captura de pantalla 2025-04-04 134454](https://github.com/user-attachments/assets/664445ee-a900-445c-a035-085657bca083)
 
-Al dirigrnos al archivo '/robots.txt' se encuentra lo que parece ser una contraseña, que junto con el usuario antes encontrado, serán útiles para el otro archivo /login.php', también hallado en la enumeración.
+Al dirigrnos al archivo '/robots.txt' se encuentra lo que parece ser una contraseña, que junto con el usuario antes encontrado, serán útiles para el otro archivo /login.php', también hallado en la enumeración. 
 
 ![Captura de pantalla 2025-04-04 134517](https://github.com/user-attachments/assets/efdb16bd-b14c-41bd-bd19-edb158f80200)
+
+| Usuario | Contraseña |
+|---------|------------|
+| R1ckRul3s | Wubbalubbadubdub |
+
+Al hacer el *log in* se llega a un formulario que accepta comandos. Despues de realizar un <code>whoami</code> y un <code>pwd</code>, se descubre que somos el usuario 'www-data' y estamos en el directorio '/var/www/html'. Ejecutando <code>ls</code>, aparecen la lista de archivos que contiene el directorio entre los que destaca 'Sup3rS3cretPickl3Ingred.txt. Para leer el contenido de este archivo es necesario utilizar el comadno <code>less</code>, en lugar de <code>cat</code>, pues este está deshabilitado y de esta manera se encuentra el primer ingrediente.
+
+![image](https://github.com/user-attachments/assets/281596d6-0bb6-454a-99a9-bc4494a38749)
+
+**Flag: mr. meeseek hair**
 
 ### Vulnerabilidades explotadas
 
 
-**Flag: **
 **Flag: **
 **Flag: **
