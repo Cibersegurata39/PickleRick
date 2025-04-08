@@ -1,0 +1,2 @@
+# PickleRick
+Máquina de TryHackMe
