@@ -59,6 +59,7 @@ Al hacer el *log in* se llega a un formulario que accepta comandos. Despues de r
 
 **Flag: mr. meeseek hair**
 
+
 ### Vulnerabilidades explotadas
 
 
