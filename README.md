@@ -59,6 +59,8 @@ Al dirigrnos al archivo '/robots.txt' se encuentra lo que parece ser una contras
 
 Al hacer el *log in* se llega a un formulario que accepta comandos. Despues de realizar un <code>whoami</code> y un <code>pwd</code>, se descubre que somos el usuario 'www-data' y estamos en el directorio '/var/www/html'. Ejecutando <code>ls</code>, aparecen la lista de archivos que contiene el directorio entre los que destaca 'Sup3rS3cretPickl3Ingred.txt. Para leer el contenido de este archivo es necesario utilizar el comadno <code>less</code>, en lugar de <code>cat</code>, pues este está deshabilitado y de esta manera se encuentra el primer ingrediente.
 
+<code>less Sup3rS3cretPickl3Ingred.txt</code>
+
 **Flag: mr. meeseek hair**
 
 ![image](https://github.com/user-attachments/assets/281596d6-0bb6-454a-99a9-bc4494a38749)
