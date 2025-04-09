@@ -83,9 +83,12 @@ Una vez dentro, navegando hacia el directorio '/home/rick' aparece un archivo ll
 
 ![Captura de pantalla 2025-04-08 180738](https://github.com/user-attachments/assets/0607b361-f320-4904-a919-d9dfc0f53ef5)
 
+Para encontrar el último ingrediente, se debe escalar privilegios. Primero se comprueba que comandos, el usuario actual (www-data), puede ejecutar con permisos de *sudo*. 
 
+<code>sudo -l</code>
 
+En la respuesta se aclara que se puede pasar a usuario *root* sin necesidad de instertar ninguna contraseña. Esto permite acceder al diretorio /*root* y encontrar dentro del archivo '3rd.txt' el tercer ingrediente.
 
+![Captura de pantalla 2025-04-08 181105](https://github.com/user-attachments/assets/baf2e399-5077-4b13-b7de-40b90db803b0)
 
-**Flag: **
-**Flag: **
+**Flag: fleeb juice **
