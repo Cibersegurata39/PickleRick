@@ -15,8 +15,8 @@ Explicar la realización del siguiente _Capture the flag_ perteneciente a la pla
 
 ## Que hemos aprendido?
 
-- Realizar fingerprinting y enumeración de puertos y enumeración web (mediante *Dirsearch*).
-
+- Realizar fingerprinting y enumeración de puertos y enumeración web.
+- Realizar una *reverse shell*.
 - Escalada de privilegios.
 
 ## Herramientas utilizadas
