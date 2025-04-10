@@ -4,6 +4,7 @@ Máquina resuelta de *TryHackMe* en la que se trabaja la enumeración y *fingerp
   <img src="https://img.shields.io/badge/-Kali-5e8ca8?style=for-the-badge&logo=kalilinux&logoColor=white" />
   <img src="https://img.shields.io/badge/-Nmap-6933FF?style=for-the-badge&logo=nmap&logoColor=white" />
   <img src="https://img.shields.io/badge/-Dirsearch-005571?style=for-the-badge&logo=dirsearch&logoColor=white" />
+  <img src="https://img.shields.io/badge/-php-777BB4?style=for-the-badge&logo=php&logoColor=white" />
   <img src="https://img.shields.io/badge/-Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white" />
   <img src="https://img.shields.io/badge/-python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/-Netcat-F5455C?style=for-the-badge&logo=netcat&logoColor=white" />
@@ -23,7 +24,7 @@ Explicar la realización del siguiente _Capture the flag_ perteneciente a la pla
 ## Herramientas utilizadas
 
 - *Kali Linux*.
-- Enumeración: *Nmap*, *Dirsearch*.
+- Enumeración: *Nmap*, *Dirsearch*, *Python*.
 - Penetración: *Bash*, *PHP*, *Netcat*. 
 
 ## Steps
