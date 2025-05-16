@@ -40,7 +40,7 @@ El comando devuelve 2 puertos TCPs abiertos:
 - En el puerto 22 corre la versión *Openssh 8.2p1*, en un sistema *Ubuntu*, servicio *SSH*.  
 - En el puerto 80 corre el servidor *Apache 2.4.41*, en un sistema *Ubuntu*, servicio *HTTP*.
 
-Primero nos dirigimos, desde el navegador, al puerot 80 de la IP dada, donde se puede ver un mensaje de ayuda de *Rick*. Si se inspecciona el código de la página se puede encontrar un comentario con el nombre de usuario: *R1ckRul3s*.
+Primero nos dirigimos, desde el navegador, al puerto 80 de la IP dada, donde se puede ver un mensaje de ayuda de *Rick*. Si se inspecciona el código de la página se puede encontrar un comentario con el nombre de usuario: *R1ckRul3s*.
 
 ![image](https://github.com/user-attachments/assets/52f9925c-635c-4310-bcb4-342b65b72e7e)
 
