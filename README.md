@@ -1,3 +1,5 @@
+![Visitors](https://api.visitorbadge.io/api/visitors?path=https://github.com/Cibersegurata39/PickleRick&countColor=%23263759&style=flat)
+
 # PickleRick
 Máquina resuelta de *TryHackMe* en la que se trabaja la enumeración y *fingerprinting*, *reverse shell*, la escucha de puertos y la escalada de privilegios.
 <div>
